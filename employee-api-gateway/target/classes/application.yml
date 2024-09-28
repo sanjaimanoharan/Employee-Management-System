@@ -1,0 +1,18 @@
+spring: 
+  cloud:
+    gateway:
+      routes:
+      - id: employee-user-service
+        uri: lb://employee-user-service
+        predicates:
+        - Path=/user/**
+        
+      - id: employee-salary-service
+        uri: lb://employee-salary-service
+        predicates:
+        - Path=/salary/**
+        
+      - id: employee-department-service
+        uri: lb://employee-department-service
+        predicates:
+        - Path=/department/** 

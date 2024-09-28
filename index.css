@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-family:'Times New Roman', Times, serif
+
+}
+
+code {
+  font-family:'Times New Roman', Times, serif
+}
+
+.custom-bg {
+  background-color: 	#fdf9fa ;
+}
+
+.text-color {
+  color: #031011 ;
+}
+
+.text-color1 {
+  color: #D4AA00;
+}
+.custom-bg-text {
+  color: #0b0c0e;
+}
+
+.bg-color {
+  background-color: #c1e9f3;
+}
+
+.rounded-card {
+  padding: 1.5em .5em .5em;
+  border-radius: 2em;
+  box-shadow: 0 5px 10px rgba(12, 132, 136, 0.2);
+}
+
+.card {
+  transition: transform 0.2s ease;
+}
+
+.card:hover .product-card {
+  transform: scale(1.02);
+}
+
