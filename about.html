@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Employee Management System</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            list-style: none;
+            text-decoration: none;
+        }
+        :root {
+            --main-color: #ff702a;
+            --text-color: #fff;
+            --bg-color: hsl(249, 20%, 14%);
+            --big-font: 2rem;
+            --h2-font: 1.5rem;
+            --p-font: 1rem;
+        }
+        body {
+            color: var(--text-color);
+            background: var(--bg-color);
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: var(--bg-color);
+        }
+        .logo {
+            font-size: 2rem;
+            color: var(--main-color);
+            font-weight: bold;
+        }
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            list-style: none;
+        }
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        nav ul li a:hover {
+            color: var(--main-color);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #333;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            color: var(--main-color);
+            font-size: var(--big-font);
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-size: var(--h2-font);
+            margin-bottom: 10px;
+            color: var(--main-color);
+            text-align: center;
+        }
+        .about-section {
+            margin-bottom: 40px;
+        }
+        .about-section p {
+            margin: 10px 0;
+            line-height: 1.6;
+            font-size: var(--p-font);
+            text-align: center; /* Added this to center the paragraph text */
+        }
+        .team-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .team-member {
+            text-align: center;
+            background: #444;
+            padding: 20px;
+            border-radius: 8px;
+            width: 250px;
+            margin: 20px;
+        }
+        .team-member img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .team-member h3 {
+            margin: 10px 0;
+            color: var(--main-color);
+        }
+        .team-member p {
+            font-size: var(--p-font);
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- About Us Section -->
+    <div class="about-section">
+        <h2 class="section-title">About Us</h2>
+        <p>
+            Employee Management System (EMS) is a comprehensive solution designed to streamline employee management processes 
+            for organizations of all sizes. Our platform empowers HR teams and administrators to efficiently manage employee 
+            records, track project history, and handle financial details with ease. 
+        </p>
+        <p>
+            EMS offers a secure and scalable system where employees can manage their personal and professional information 
+            while administrators maintain full control over organizational data. Our goal is to create an efficient 
+            environment for seamless collaboration and accurate employee data management.
+        </p>
+    </div>
+
+    <!-- Our Mission Section -->
+    <div class="about-section">
+        <h2 class="section-title">Our Mission</h2>
+        <p>
+            Our mission is to revolutionize the way organizations manage employee information. We aim to provide an intuitive and 
+            user-friendly platform that not only reduces administrative burden but also improves employee engagement through 
+            a transparent and organized data management system.
+        </p>
+        <p>
+            By integrating modern technology, EMS helps businesses enhance their operational efficiency while safeguarding 
+            sensitive employee information.
+        </p>
+    </div>
+
+    <!-- Our Vision Section -->
+    <div class="about-section">
+        <h2 class="section-title">Our Vision</h2>
+        <p>
+            Our vision is to become the leading employee management platform globally, recognized for our innovative solutions 
+            and commitment to excellence. We strive to create a world where managing employee data is not just a task 
+            but a strategic advantage for every organization.
+        </p>
+        <p>
+            We envision a future where businesses can leverage our platform to boost productivity, foster collaboration, 
+            and create a more connected workforce.
+        </p>
+    </div>
+
+    <!-- Who We Are Section -->
+    <div class="about-section">
+        <h2 class="section-title">Who We Are</h2>
+        <p>
+            We are a team of passionate professionals with expertise in HR, software development, and data management. 
+            Our team works tirelessly to bring the best features and functionalities to the EMS platform, ensuring it 
+            meets the diverse needs of our clients across various industries.
+        </p>
+        <p>
+            Our focus is on delivering solutions that simplify employee management, empower HR departments, and 
+            enhance the overall experience for employees within any organization.
+        </p>
+    </div>
+
+    <!-- Meet Our Team Section -->
+    <div class="about-section">
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="team-section">
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 1">
+                <h3>John Doe</h3>
+                <p>CEO & Founder</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 2">
+                <h3>Jane Smith</h3>
+                <p>CTO</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 3">
+                <h3>Emily Johnson</h3>
+                <p>HR Manager</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 4">
+                <h3>Michael Brown</h3>
+                <p>Lead Developer</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

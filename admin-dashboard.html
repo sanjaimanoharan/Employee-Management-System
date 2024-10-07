@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* Styling remains the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: hsl(249, 20%, 14%);
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #2c2f33;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #ff702a;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #ff702a;
+            color: white;
+        }
+        td {
+            background-color: #3e3e3e;
+        }
+        .form-container {
+            background-color: #444;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .action-buttons button {
+            padding: 8px 12px;
+            background-color: #ff702a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .action-buttons button:hover {
+            background-color: #d95b2c;
+        }
+        .logout-button {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .logout-button button {
+            background-color: red;
+        }
+        .logout-button button:hover {
+            background-color: #b30000;
+        }
+        .message {
+            text-align: center;
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="logout-button">
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <h1>Admin Dashboard</h1>
+
+        <!-- Employee List Section -->
+        <h2>Employee List</h2>
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Employee Code</th>
+                    <th>Name of Employee</th>
+                    <th>Company Email</th>
+                    <th>Manager Name</th>
+                    <th>Current Project</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Employee data will be populated dynamically -->
+            </tbody>
+        </table>
+
+        <!-- Add New Employee Section (button for redirection) -->
+        <div class="action-buttons" style="text-align: center;">
+            <button onclick="redirectToAddEmployee()">Add New Employee</button>
+        </div>
+
+        <!-- Success Message -->
+        <p id="message" class="message"></p>
+    </div>
+
+    <script>
+        // Sample employee data (You can later replace this with actual backend data)
+        let employees = [
+            {
+                code: 'EMP001',
+                name: 'Kavi',
+                email: 'kavi@company.com',
+                phone: '9876543210',
+                address: '1234 Main St',
+                manager: 'James Smith',
+                role: 'Software Engineer',
+                department: 'IT',
+                project: 'Project Alpha',
+                projectManager: 'John Doe',
+                salary: '60000',
+                bankAccount: '1234567890'
+            },
+            {
+                code: 'EMP002',
+                name: 'Priya',
+                email: 'priyanka@company.com',
+                phone: '9876543211',
+                address: '5678 Second St',
+                manager: 'John Doe',
+                role: 'QA Engineer',
+                department: 'Testing',
+                project: 'Project Beta',
+                projectManager: 'Jane Doe',
+                salary: '50000',
+                bankAccount: '0987654321'
+            }
+        ];
+
+        // Function to populate the employee table
+        function populateEmployeeTable() {
+            const employeeTableBody = document.querySelector('#employeeTable tbody');
+            employeeTableBody.innerHTML = ''; // Clear table before populating
+
+            employees.forEach((employee, index) => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${employee.code}</td>
+                    <td>${employee.name}</td>
+                    <td>${employee.email}</td>
+                    <td>${employee.manager}</td>
+                    <td>${employee.project}</td>
+                    <td class="action-buttons">
+                        <button onclick="editEmployee(${index})">Edit</button>
+                        <button onclick="deleteEmployee(${index})">Delete</button>
+                    </td>
+                `;
+
+                employeeTableBody.appendChild(row);
+            });
+        }
+
+        // Function to redirect to the Add Employee page
+        function redirectToAddEmployee() {
+            sessionStorage.removeItem('employeeToEdit');
+            window.location.href = 'add-employee.html';
+        }
+
+        // Function to handle editing an employee
+        function editEmployee(index) {
+            // Retrieve the employee's data
+            const employee = employees[index];
+
+            // Store employee data in sessionStorage for use in the edit form
+            sessionStorage.setItem('employeeToEdit', JSON.stringify(employee));
+            sessionStorage.setItem('employeeIndex', index);
+
+            // Redirect to the Add Employee page for editing (pre-populated data)
+            window.location.href = 'update-employee.html';
+        }
+
+        // Function to handle updating an employee and displaying the success message
+        function updateEmployeeDetails() {
+            // Assuming the updated employee details are saved here
+            document.getElementById('message').innerText = "Successfully updated employee details!";
+        }
+
+        // Function to delete an employee
+        function deleteEmployee(index) {
+            employees.splice(index, 1);
+            populateEmployeeTable();
+        }
+
+        // Function to handle logout
+        function logout() {
+            window.location.href = 'login.html';
+        }
+
+        // Initialize table with sample data
+        populateEmployeeTable();
+    </script>
+</body>
+</html>

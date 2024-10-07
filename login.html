@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: hsl(249, 20%, 14%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            color: #ff702a;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff702a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #ff5722;
+        }
+        p {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .message {
+            margin-top: 10px;
+            text-align: center;
+            color: #ff702a;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <label for="email">Company Email ID:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Login">
+        </form>
+        <p>If you don't have an account, <a href="admin-regisrtration.html">sign up here</a></p>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const messageDiv = document.getElementById('message');
+
+            // Here you should replace the URL with your actual API endpoint
+            const apiUrl = 'https://your-backend-api.com/login'; 
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Check the user role returned from the API
+                    if (data.role === 'admin') {
+                        messageDiv.textContent = 'Welcome Admin!';
+                        setTimeout(() => {
+                            window.location.href = 'admin_dashboard.html';
+                        }, 2000); // Redirect after 2 seconds
+                    } else if (data.role === 'employee') {
+                        messageDiv.textContent = 'Welcome Employee!';
+                        setTimeout(() => {
+                            window.location.href = 'employee_dashboard.html';
+                        }, 2000); // Redirect after 2 seconds
+                    }
+                } else {
+                    // Handle error response
+                    messageDiv.textContent = data.message || 'Login failed. Please check your credentials.';
+                    messageDiv.style.color = 'red'; // Error message in red
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                messageDiv.textContent = 'An error occurred while logging in. Please try again later.';
+                messageDiv.style.color = 'red'; // Error message in red
+            }
+        });
+    </script>
+
+</body>
+</html>

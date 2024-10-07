@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width-device-width,initial-scale=1.0" />
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+<style>
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+  
+:root {
+    --main-color: #ff702a;
+    --text-color: #fff;
+    --bg-color: hsl(249, 20%, 14%);
+    --big-font: 5rem;
+    --h2-font: 2.25rem;
+    --p-font: 0.9rem;
+}
+*::selection {
+    background: var(--main-color);
+    color: #fff;
+}
+.logo {
+    color: #ff702a;
+    font-weight: 600;
+    font-size: 2.4rem;
+}
+body {
+    color: var(--text-color);
+    background: var(--bg-color);
+}
+header {
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 170px;
+    background: var(--bg-color);
+}
+.navbar {
+    display: flex;
+}
+.navbar a {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    font-weight: 500;
+}
+.navbar a:hover {
+    color: var(--main-color);
+    transition: .4s;  
+}
+section {
+    padding: 70px 17%;
+}
+.home {
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.home-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.home-img img {
+    max-width: 100%;
+    width: 600px;
+    height: auto;
+}
+.home-text h2 {
+    font-size: var(--h2-font);
+    margin: 1rem 0 2rem;
+}
+.home-text h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0 2rem;
+    color: var(--text-color);
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--main-color);
+    color: #fff;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+.btn:hover {
+    transform: scale(1.2) translateY(10px);
+    transition: .4s;
+}
+.about {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+    align-items: center;    
+}
+.about-img img {
+    max-width: 100%;
+    width: 480px;
+    height: auto;
+}
+.about-text span {
+    color: var(--main-color);
+    font-weight: 600;
+}
+.about-text h2 {
+    font-size: var(--h2-font);
+}
+.about-text p {
+    margin: 0.8rem 0 1.8rem;
+    line-height: 1.7;
+}
+.heading {
+    text-align: center;
+}
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+    grid-gap: 1.5rem;
+    align-items: center;
+}
+.cta {
+    background: #feeefe;
+    padding: 70px 0;
+    text-align: center;
+    width: 66%;
+    margin: 100px auto;
+    border-radius: 10px;
+}
+.cta h2 {
+    font-size: 2rem;
+    color: var(--bg-color);
+    margin-bottom: 30px;
+}
+.main {
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer {
+    padding: 10px 0;
+}
+.col {
+    width: 25%;
+}
+.col h4 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    position: relative;
+}
+.col h4::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 50px;
+    left: 0;
+    bottom: -8px;
+    background: var(--main-color);
+}
+.col ul li:not(last-child) {
+    margin-bottom: 15px;
+}
+.col ul li a {
+    color: #9897a9;
+    font-size: 1.1rem;
+    display: block;
+    text-transform: capitalize;
+    transition: .4s; 
+}
+.col ul li a:hover {
+    color: var(--text-color);
+    transform: translateX(-12px);
+}
+</style>
+
+<header>
+    <a href="#" class="logo">WELCOME EMPLOYEE!</a>
+    <ul class="navbar">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+    </ul>
+</header>
+
+<section class="home" id="home">
+    <div class="home-text">
+        <h2>"Great Companies are built by Empowered Employees!!!"</h2>       
+        <h3>Manage all your employee records efficiently in one place.</h3>
+        <a href="login.html" class="btn">Get Started</a>
+    </div>
+    <div class="home-img">
+        <img src="https://png.pngtree.com/thumb_back/fh260/background/20230611/pngtree-employees-at-tables-in-this-purple-office-image_2961756.jpg" alt="Employee Management">
+    </div>  
+</section>
+
+<section class="about" id="about">
+    <div class="about-img">
+        <img src="https://t4.ftcdn.net/jpg/06/57/87/47/240_F_657874794_myYcKACL3ipw93UHYnsBlWgwSudZdjrH.jpg" alt="About Employee Management">
+    </div>
+    <div class="about-text"> 
+        <span>About Us</span>
+        <h2>Efficient Employee Management</h2>
+        <p>Our system helps streamline employee records and provides administrators the tools they need to manage personal and professional details.</p>
+        <a href="about.html" class="btn">Learn More</a>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Empowering employees is the key to creating a strong and successful business!</h2>
+    <a href="feedback.html" class="btn">Get in Touch</a>
+</section>
+
+<section id="contact">
+    <div class="footer">
+        <div class="main">
+            <div class="col">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="finance.html">Marketing Finance</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4>Contact Us</h4>
+                <div class="social">
+                    <a href="#">+91 84281 11991</a><br>
+                    <a href="#">+91 8428632250</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

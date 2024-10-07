@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Employee Management System</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            list-style: none;
+            text-decoration: none;
+        }
+        :root {
+            --main-color: #ff702a;
+            --text-color: #fff;
+            --bg-color: hsl(249, 20%, 14%);
+            --big-font: 2rem;
+            --h2-font: 1.5rem;
+            --p-font: 1rem;
+        }
+        body {
+            color: var(--text-color);
+            background: var(--bg-color);
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: var(--bg-color);
+        }
+        .logo {
+            font-size: 2rem;
+            color: var(--main-color);
+            font-weight: bold;
+        }
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            list-style: none;
+        }
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        nav ul li a:hover {
+            color: var(--main-color);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #333;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            color: var(--main-color);
+            font-size: var(--big-font);
+            margin-bottom: 30px;
+        }
+        .service-section {
+            margin-bottom: 40px;
+        }
+        .service-section h2 {
+            text-align: center;
+            color: var(--main-color);
+            font-size: var(--h2-font);
+            margin-bottom: 20px;
+        }
+        .service-section p {
+            text-align: center;
+            margin: 10px 0;
+            line-height: 1.6;
+            font-size: var(--p-font);
+        }
+        .service-cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .service-card {
+            background: #444;
+            padding: 20px;
+            border-radius: 8px;
+            width: 30%;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .service-card h3 {
+            color: var(--main-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        .service-card p {
+            font-size: var(--p-font);
+            color: #bbb;
+        }
+        @media (max-width: 768px) {
+            .service-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Our Services</h1>
+
+    <!-- Service 1 -->
+    <div class="service-section">
+        <h2>Employee Management</h2>
+        <p>
+            Our Employee Management module allows HR administrators to manage employee personal and professional details 
+            with ease. Administrators can create, update, or delete employee records, while employees can view their own 
+            details and track their personal information in a secure environment.
+        </p>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="service-section">
+        <h2>Payroll Services</h2>
+        <p>
+            Our Payroll Services ensure accurate and timely payroll processing, including salary distribution, tax calculation, 
+            and payslip generation. Employees can view and download their payslips, while administrators can manage salary 
+            records and ensure compliance with company financial policies.
+        </p>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-section">
+        <h2>Performance Monitoring</h2>
+        <p>
+            Track and assess employee performance with our performance monitoring tools. Administrators can track individual 
+            performance metrics and project completion, helping organizations monitor employee contributions towards company 
+            goals.
+        </p>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="service-section">
+        <h2>Project Tracking</h2>
+        <p>
+            Our project tracking feature allows employees and administrators to manage current and past project information, 
+            including client names, project timelines, and reporting managers. Ensure that all projects are completed 
+            on time and within budget, with full transparency of employee assignments.
+        </p>
+    </div>
+
+    <!-- Additional Service Cards -->
+    <div class="service-cards">
+        <div class="service-card">
+            <h3>Attendance Management</h3>
+            <p>
+                Keep track of employee attendance records, including leaves, working hours, and overtime. Our system provides 
+                accurate attendance monitoring to ensure payroll consistency and overall efficiency.
+            </p>
+        </div>
+        <div class="service-card">
+            <h3>Recruitment Assistance</h3>
+            <p>
+                Streamline your recruitment process with our integrated recruitment tools. Manage job postings, candidate 
+                applications, and track progress from application to onboarding with ease.
+            </p>
+        </div>
+        <div class="service-card">
+            <h3>Employee Self-Service</h3>
+            <p>
+                Enable employees to manage their own profiles, view payslips, request time off, and update personal 
+                information through the self-service portal, reducing administrative overhead.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

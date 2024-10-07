@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Update Employee</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: hsl(249, 20%, 14%);
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #2c2f33;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #ff702a;
+        }
+        .form-container {
+            background-color: #444;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 8px 12px;
+            background-color: #ff702a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d95b2c;
+        }
+        .section-title {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: #ff702a;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Update Employee</h1>
+        <div class="form-container">
+            <form id="updateEmployeeForm">
+                <!-- Personal Details -->
+                <h2 class="section-title">Personal Details</h2>
+                <div class="form-group">
+                    <label for="empCode">Employee Code (6 digits)</label>
+                    <input type="text" id="empCode" name="empCode" pattern="\d{6}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="empFullName">Full Name</label>
+                    <input type="text" id="empFullName" name="empFullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="empDOB">Date of Birth</label>
+                    <input type="date" id="empDOB" name="empDOB" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="empGender">Gender</label>
+                    <input type="text" id="empGender" name="empGender" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="empAge">Age (max 3 digits)</label>
+                    <input type="number" id="empAge" name="empAge" min="1" max="999" required>
+                </div>
+                <div class="form-group">
+                    <label for="currentAddress">Current Address</label>
+                    <input type="text" id="currentAddress" name="currentAddress" placeholder="Address Line 1, City, Pin Code" required>
+                </div>
+                <div class="form-group">
+                    <label for="permanentAddress">Permanent Address</label>
+                    <input type="text" id="permanentAddress" name="permanentAddress" placeholder="Address Line 1, City, Pin Code" required>
+                </div>
+                <div class="form-group">
+                    <label for="empMobile">Mobile (10 digits)</label>
+                    <input type="text" id="empMobile" name="empMobile" pattern="\d{10}" required>
+                </div>
+                <div class="form-group">
+                    <label for="personalMail">Personal Mail</label>
+                    <input type="email" id="personalMail" name="personalMail" required>
+                </div>
+                <div class="form-group">
+                    <label for="emergencyContact">Emergency Contact Name & Mobile</label>
+                    <input type="text" id="emergencyContact" name="emergencyContact" placeholder="Contact Name, Mobile" required>
+                </div>
+
+                <!-- Professional Details -->
+                <h2 class="section-title">Professional Details</h2>
+                <div class="form-group">
+                    <label for="companyMail">Company Mail</label>
+                    <input type="email" id="companyMail" name="companyMail" required>
+                </div>
+                <div class="form-group">
+                    <label for="officePhone">Office Phone (8-12 digits)</label>
+                    <input type="text" id="officePhone" name="officePhone" pattern="\d{8,12}" required>
+                </div>
+                <div class="form-group">
+                    <label for="officeAddress">Office Address</label>
+                    <input type="text" id="officeAddress" name="officeAddress" placeholder="Address Line 1, City, Pin Code" required>
+                </div>
+                <div class="form-group">
+                    <label for="reportingManager">Reporting Manager</label>
+                    <input type="text" id="reportingManager" name="reportingManager" required>
+                </div>
+                <div class="form-group">
+                    <label for="hrName">HR Name</label>
+                    <input type="text" id="hrName" name="hrName" required>
+                </div>
+                <div class="form-group">
+                    <label for="employmentHistory">Employment History</label>
+                    <input type="text" id="employmentHistory" name="employmentHistory" placeholder="Previous Company, Joining Date, End Date" required>
+                </div>
+
+                <!-- Project Details -->
+                <h2 class="section-title">Project Details (Optional)</h2>
+                <div class="form-group">
+                    <label for="projectCode">Project Code</label>
+                    <input type="text" id="projectCode" name="projectCode">
+                </div>
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" id="projectName" name="projectName">
+                </div>
+                <div class="form-group">
+                    <label for="projectStartDate">Start Date</label>
+                    <input type="date" id="projectStartDate" name="projectStartDate">
+                </div>
+                <div class="form-group">
+                    <label for="projectEndDate">End Date</label>
+                    <input type="date" id="projectEndDate" name="projectEndDate">
+                </div>
+
+                <!-- Finance Details -->
+                <h2 class="section-title">Finance Details</h2>
+                <div class="form-group">
+                    <label for="panCard">Pan Card</label>
+                    <input type="text" id="panCard" name="panCard" required>
+                </div>
+                <div class="form-group">
+                    <label for="aadharCard">Aadhar Card</label>
+                    <input type="text" id="aadharCard" name="aadharCard" required>
+                </div>
+                <div class="form-group">
+                    <label for="bankDetails">Bank Details (Bank Name, Branch, IFSC)</label>
+                    <input type="text" id="bankDetails" name="bankDetails" required>
+                </div>
+                <div class="form-group">
+                    <label for="ctcBreakup">CTC Breakup</label>
+                    <input type="text" id="ctcBreakup" name="ctcBreakup" required>
+                </div>
+
+                <button type="submit">Update Employee</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Populate form with the selected employee data from sessionStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const employee = JSON.parse(sessionStorage.getItem('employeeToEdit'));
+            
+            if (employee) {
+                document.getElementById('empCode').value = employee.code;
+                document.getElementById('empFullName').value = employee.name;
+                document.getElementById('empDOB').value = employee.dob;
+                document.getElementById('empGender').value = employee.gender;
+                document.getElementById('empAge').value = employee.age;
+                document.getElementById('currentAddress').value = employee.currentAddress;
+                document.getElementById('permanentAddress').value = employee.permanentAddress;
+                document.getElementById('empMobile').value = employee.mobile;
+                document.getElementById('personalMail').value = employee.personalMail;
+                document.getElementById('emergencyContact').value = employee.emergencyContact;
+                document.getElementById('companyMail').value = employee.companyMail;
+                document.getElementById('officePhone').value = employee.officePhone;
+                document.getElementById('officeAddress').value = employee.officeAddress;
+                document.getElementById('reportingManager').value = employee.reportingManager;
+                document.getElementById('hrName').value = employee.hrName;
+                document.getElementById('employmentHistory').value = employee.employmentHistory;
+                document.getElementById('projectCode').value = employee.projectCode;
+                document.getElementById('projectName').value = employee.projectName;
+                document.getElementById('projectStartDate').value = employee.projectStartDate;
+                document.getElementById('projectEndDate').value = employee.projectEndDate;
+                document.getElementById('panCard').value = employee.panCard;
+                document.getElementById('aadharCard').value = employee.aadharCard;
+                document.getElementById('bankDetails').value = employee.bankDetails;
+                document.getElementById('ctcBreakup').value = employee.ctcBreakup;
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('updateEmployeeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Collect form data and send it to the backend for update
+            const updatedEmployee = {
+                code: document.getElementById('empCode').value,
+                name: document.getElementById('empFullName').value,
+                dob: document.getElementById('empDOB').value,
+                gender: document.getElementById('empGender').value,
+                age: document.getElementById('empAge').value,
+                currentAddress: document.getElementById('currentAddress').value,
+                permanentAddress: document.getElementById('permanentAddress').value,
+                mobile: document.getElementById('empMobile').value,
+                personalMail: document.getElementById('personalMail').value,
+                emergencyContact: document.getElementById('emergencyContact').value,
+                companyMail: document.getElementById('companyMail').value,
+                officePhone: document.getElementById('officePhone').value,
+                officeAddress: document.getElementById('officeAddress').value,
+                reportingManager: document.getElementById('reportingManager').value,
+                hrName: document.getElementById('hrName').value,
+                employmentHistory: document.getElementById('employmentHistory').value,
+                projectCode: document.getElementById('projectCode').value,
+                projectName: document.getElementById('projectName').value,
+                projectStartDate: document.getElementById('projectStartDate').value,
+                projectEndDate: document.getElementById('projectEndDate').value,
+                panCard: document.getElementById('panCard').value,
+                aadharCard: document.getElementById('aadharCard').value,
+                bankDetails: document.getElementById('bankDetails').value,
+                ctcBreakup: document.getElementById('ctcBreakup').value
+            };
+
+            // Code to send the updated employee data to the server here
+            console.log('Updated Employee Data:', updatedEmployee);
+            alert('Employee updated successfully!');
+        });
+    </script>
+</body>
+</html>

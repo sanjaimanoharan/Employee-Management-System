@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Registration</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            list-style: none;
+            text-decoration: none;
+        }
+        :root {
+            --main-color: #ff702a;
+            --text-color: #fff;
+            --bg-color: hsl(249, 20%, 14%);
+            --big-font: 2.5rem;
+            --h2-font: 2rem;
+            --p-font: 1rem;
+        }
+        body {
+            color: var(--text-color);
+            background: var(--bg-color);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 100px auto;
+            background: #333;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            color: var(--main-color);
+            font-size: var(--big-font);
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: var(--p-font);
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: var(--p-font);
+        }
+        input[type="submit"] {
+            background: var(--main-color);
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            transform: scale(1.05);
+            transition: 0.4s;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .login-link a {
+            color: var(--main-color);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Admin Registration</h1>
+    <form id="registrationForm">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+        <label for="email">Company Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your company email" required>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" placeholder="Enter your age" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+
+        <label for="mobile">Mobile Number</label>
+        <input type="text" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <div class="login-link">
+        <p>Already registered? <a href="login.html">Login here</a></p>
+    </div>
+</div>
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Fetch form data
+        const fullName = document.getElementById('fullName').value;
+        const email = document.getElementById('email').value;
+        const dob = document.getElementById('dob').value;
+        const gender = document.getElementById('gender').value;
+        const age = document.getElementById('age').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const mobile = document.getElementById('mobile').value;
+
+        // Form validation
+        if (password !== confirmPassword) {
+            alert('Passwords do not match!');
+            return;
+        }
+
+        // Simulating backend API call to save admin registration data
+        console.log({
+            fullName,
+            email,
+            dob,
+            gender,
+            age,
+            password,
+            mobile
+        });
+
+        alert('Registration successful! Now you can login.');
+        // Redirect to login page after successful registration
+        window.location.href = 'login.html';
+    });
+</script>
+
+</body>
+</html>

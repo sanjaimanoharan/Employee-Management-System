@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: hsl(249, 20%, 14%);
+        }
+        body h1 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #ff702a;
+        }
+        .slide {
+            height: 100%;
+            width: 180px;
+            position: absolute;
+            background-color: #fff;
+            transition: transform 0.5s ease;
+            transform: translateX(-180px);
+            z-index: 1;
+        }
+        h1 {
+            font-weight: 800;
+            text-align: right;
+            padding: 10px 0;
+            padding-right: 30px;
+            pointer-events: none;
+        }
+        ul li {
+            list-style: none;
+        }
+        ul li a {
+            color: black;
+            font-weight: 500;
+            padding: 5px 0;
+            display: block;
+            text-align: center;
+            text-transform: capitalize;
+            text-decoration: none;
+            transition: 0.2s ease-out;
+        }
+        ul li:hover a {
+            color: #fff;
+            background-color: #ff702a;
+        }
+        .toggle {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            top: 20px;
+            left: 15px;
+            z-index: 2;
+            cursor: pointer;
+            border-radius: 2px;
+            background-color: #ff702a;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .toggle .common {
+            position: absolute;
+            height: 2px;
+            width: 20px;
+            background-color: #fff;
+            border-radius: 50px;
+            transition: 0.3s ease;
+        }
+        .toggle .top_line {
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .toggle .middle_line {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .toggle .bottom_line {
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .container {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .container label {
+            display: block;
+            margin: 10px 0;
+        }
+        .container input, .container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .container input[type="submit"] {
+            background-color: #ff702a;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #ff5722;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>EMPLOYEE DASHBOARD</h1>
+    
+    <div class="toggle" onclick="toggleMenu()">
+        <span class="top_line common"></span>
+        <span class="middle_line common"></span>
+        <span class="bottom_line common"></span>
+    </div>
+
+    <div class="slide" id="slideMenu">
+        <h1>Menu</h1>
+        <ul>
+            <li><a href="personal.html">Personal Details</a></li>
+            <li><a href="professional.html">Professional Details</a></li>
+            <li><a href="project.html">Project Details</a></li>
+            <li><a href="fiance.html">Finance Details</a></li>
+        </ul>       
+    </div> 
+
+
+    <script>
+        function toggleMenu() {
+            const slideMenu = document.getElementById('slideMenu');
+            const isVisible = slideMenu.style.transform === 'translateX(0px)';
+            slideMenu.style.transform = isVisible ? 'translateX(-180px)' : 'translateX(0)';
+        }
+    </script>
+
+</body>
+</html>
